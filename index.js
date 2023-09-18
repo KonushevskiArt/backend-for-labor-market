@@ -1,12 +1,18 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const authRouter = require('./authRouter')
+const authRouter = require('./Routers/authRouter')
+const summaryRouter = require('./Routers/summaryRouter')
 const PORT = process.env.PORT || 5000
 
 const app = express()
 
 app.use(express.json())
-app.use("/auth", authRouter)
+app.use("/api/summary", summaryRouter)
+app.use("/api/auth", authRouter)
+
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
 
 const start = async () => {
     try {
