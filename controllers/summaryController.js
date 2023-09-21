@@ -40,7 +40,7 @@ class summaryController {
       return res.status(201).json({message: "Резюме успешно создано"})
     } catch (e) {
       console.log(e);
-      res.status(500).json({message: `Vacancy creation error - ${e}`})
+      res.status(500).json({message: `Summary creation error - ${e}`})
     }
 }
 
